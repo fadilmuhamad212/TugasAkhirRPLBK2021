@@ -1,2 +1,2 @@
-#Tugas Akhir RPLBK 2021 Kelompok 35
-Ini adalah sebuah aplikasi untuk mendaftar wishlist game yang akan dibeli.
+#Tugas Akhir RPLBK 2021 Kelompok 10
+Ini adalah sebuah aplikasi sistem informasi perpustakaan
