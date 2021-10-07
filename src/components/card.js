@@ -79,7 +79,7 @@ export default function SimpleCard() {
                         <Card className={classes.root}>
                             <Name>
                                 <div className="praktikan">
-                                    <CardContent nama="Muhamad Fadhil Tsalatsa" nim="21120118130053" src="https://i.imgur.com/pSIB0p9l.jpg" />
+                                    <CardContent nama="Muhamad Fadhil Tsalatsa" nim="21120118130053" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5s5V6GZxfRKfauLV51fm9uUyHilPtPO4WBw&usqp=CAU" />
                                     <Select>
                                         <option value="1">Kelas</option>
                                         <option value="2">A</option>
@@ -93,7 +93,7 @@ export default function SimpleCard() {
                         <Card className={classes.root}>
                             <Name>
                                 <div className="praktikan">
-                                    <CardContent nama="Bernita Febrihatin" nim="21120118120023" src="https://i.imgur.com/eYby98ks.jpg" />
+                                    <CardContent nama="Bernita Febrihatin" nim="21120118120023" src="https://png.pngtree.com/png-vector/20190116/ourlarge/pngtree-vector-female-student-icon-png-image_322033.jpg" />
                                     <Select>
                                         <option value="1">Kelas</option>
                                         <option value="2">A</option>

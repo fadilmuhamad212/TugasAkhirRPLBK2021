@@ -34,7 +34,7 @@ export default class Mount extends Component{
                <div>
                   <Waktu />
                </div>
-                <button onClick={this.hilangkan}>{this.state.kompWot ? 'Sembunyikan List' : 'Tampilkan List'} </button>
+                <button className="rounded" onClick={this.hilangkan}>{this.state.kompWot ? 'Sembunyikan List' : 'Tampilkan List'} </button>
                 {this.state.kompWot ? <Tekkom/> : ''}
                 </header>
             </div>

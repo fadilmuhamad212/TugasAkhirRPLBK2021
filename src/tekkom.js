@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Modal } from "antd";
+import { Modal, Input } from "antd";
+// import { Row, Col, Divider } from 'antd';
 import "antd/dist/antd.css";
+
+import { Card, Button } from 'antd';
+
+const gridStyle = {
+  width: '25%',
+  textAlign: 'center',
+  marginLeft: '70px',
+  marginTop: '30px',
+  backgroundColor: 'white'
+};
 
 
 export default class tekkom extends Component {
@@ -127,62 +138,53 @@ export default class tekkom extends Component {
     render() {
         return (
         <div>
-        <div className="boxWhite">
-        
-        <center>
-        <button onClick={this.handleTambahOrang}>Tambah Buku</button>
-        <br></br><br/>
-        {/* <input label="search" placeholder="search mobile..." onKeyUp={this.coba}></input> */}
-        </center>
-        <Modal
-        title="Tambah Buku Impianmu!!"
-        centered
-        visible={this.state.visible}
-        onOk={this.handleSubmit}
-        onCancel={() => this.setState({ visible: false })}
-        width={500}
-        >
-        <div style={{ textAlign: "center" }}>
-            <p>Nama Buku : </p>{" "}
-            <input
-            type="text"
-            placeholder="nama"
-            onChange={this.handleNama}
-            />
-            <br />
-            <p>Penulis : </p>{" "}
-            <input type="text" placeholder="publish" onChange={this.handlePublish} />
-            <br />
-            <p>tahun : </p>{" "}
-            <input
-            type="text"
-            placeholder="tahun"
-            onChange={this.handleTahun}
-            />
-            <br />
-        </div>
-        </Modal>
-        {this.state.tekkom.map((results, index) => {
-        return (
-        <div className="card" key={results.nama_buku} >
-        <div className="card-body">
-        <h5 className="card-title">Nama Buku : {results.nama_buku}</h5>
-        <h6 className="card-subtitle mb-2 text-muted">Penulis : {results.penulis}</h6>
-        <h6 className="card-subtutle mb-2 text-muted">Tahun : {results.tahun}</h6>
-        </div>
-        <button
-        className="button"
-        onClick={() => this.handleButton(results.nama_buku)}
-        >
-        klik aku
-        </button>
-        <button className="button" onClick={() => this.handleDelete(results._id)}>
-        Hapus data   
-        </button>
-        </div>
-        );
-        })}
-        </div>
+            <div className="boxWhite">
+                <center>
+                    <button className="rounded" style={{marginTop: "10px"}} onClick={this.handleTambahOrang}>Tambah Buku</button>
+                    <br></br><br/>
+                    {/* <input label="search" placeholder="search mobile..." onKeyUp={this.coba}></input> */}
+                </center>
+                <Modal
+                    title="Tambah Buku Impianmu!!"
+                    centered
+                    visible={this.state.visible}
+                    onOk={this.handleSubmit}
+                    onCancel={() => this.setState({ visible: false })}
+                    width={500}
+                    >
+                        <div style={{ textAlign: "center" }}>
+                            <p>Nama Buku : </p>{" "}
+                                <Input
+                                type="text"
+                                placeholder="nama"
+                                onChange={this.handleNama}
+                                />
+                                <br />
+                            <p>Penulis : </p>{" "}
+                                <Input type="text" placeholder="publish" onChange={this.handlePublish} />
+                                <br />
+                            <p>tahun : </p>{" "}
+                                <Input
+                                type="text"
+                                placeholder="tahun"
+                                onChange={this.handleTahun}
+                                />
+                                <br />
+                        </div>
+                </Modal>
+            
+                {this.state.tekkom.map((results, index) => {
+                return (                    
+                    <Card.Grid className="rounded" style={gridStyle} key={results.nama_buku}>
+                        <h5 className="card-title">Nama Buku : {results.nama_buku}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">Penulis : {results.penulis}</h6>
+                        <h6 className="card-subtutle mb-2 text-muted">Tahun : {results.tahun}</h6>
+                        <Button type="primary" onClick={() => this.handleButton(results.nama_buku)}>Klik Aku</Button>
+                        <Button style={{marginLeft: "5px"}} type="danger" onClick={() => this.handleDelete(results._id)}>Hapus</Button>
+                    </Card.Grid>
+                    );
+                })}
+            </div>
         </div>
         );
     }
