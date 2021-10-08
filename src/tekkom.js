@@ -3,6 +3,7 @@ import axios from "axios";
 import { Modal, Input } from "antd";
 // import { Row, Col, Divider } from 'antd';
 import "antd/dist/antd.css";
+import modaldetail from "./modaldetail";
 
 import { Card, Button } from 'antd';
 
@@ -26,14 +27,29 @@ export default class tekkom extends Component {
         tahun: ""
         };
     }
+      
 
     state = {
         komponen :true
     }
 
 
-    handleButton = (nama_buku) => {
-        alert(nama_buku);
+    handleButton = (nama_buku, penulis, tahun) => {
+        // alert("Nama Buku : " + nama_buku);
+        Modal.info({
+            title: 'Buku Impian',
+            content: (
+              <div>
+                <p>Nama Buku : {nama_buku} <br />
+                Penulis : {penulis} <br />
+                Tahun : {tahun}
+                </p>
+                {/* <p>Penulis : {penulis}</p>
+                <p>Tahun : {tahun}</p> */}
+              </div>
+            ),
+            onOk() {},
+          });
     };
 
     handleDelete = (id) => {
@@ -138,7 +154,7 @@ export default class tekkom extends Component {
     render() {
         return (
         <div>
-            <div className="boxWhite">
+            <div className="boxWhite" marginBottom="200px">
                 <center>
                     <button className="rounded" style={{marginTop: "10px"}} onClick={this.handleTambahOrang}>Tambah Buku</button>
                     <br></br><br/>
@@ -179,11 +195,14 @@ export default class tekkom extends Component {
                         <h5 className="card-title">Nama Buku : {results.nama_buku}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">Penulis : {results.penulis}</h6>
                         <h6 className="card-subtutle mb-2 text-muted">Tahun : {results.tahun}</h6>
-                        <Button type="primary" onClick={() => this.handleButton(results.nama_buku)}>Klik Aku</Button>
+                        <Button type="primary" onClick={() => this.handleButton(results.nama_buku, results.penulis, results.tahun)}>Klik Aku</Button>
+                            
                         <Button style={{marginLeft: "5px"}} type="danger" onClick={() => this.handleDelete(results._id)}>Hapus</Button>
                     </Card.Grid>
+                    
                     );
                 })}
+               
             </div>
         </div>
         );
